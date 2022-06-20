@@ -1,0 +1,22 @@
+mixin para(i)
+    if (i == 0)
+        - console.log(place)
+        p 
+            | #[+value(wordob['word1'])], an estimated 
+            | #[+value( ((data['CIS']['perc'][1])/100), {'FORMAT': '0.00%'} )] 
+            | of the #[+value(meta.name)] population #[+value(wordob['word2'])], 
+            | #[+value( (data['CIS']['perc']['Change']>0)? 'up':'down')]
+            | from 
+            | #[+value( ((data['CIS']['perc'][0])/100), {'FORMAT': '0.00%'} )]
+            | #[+value(wordob['word3'])] before.
+        p 
+            if ( data['CIS']['perc_rank_local']['Change'] == 1 )
+                | The #[+value(data['CIS']['perc']['Change']>0?'increase':'decrease')] of #[+value(Math.abs(data['CIS']['perc']['Change']))] percentage points represents the largest rise across the #[+value(meta.parent)]. 
+                | Newcastle saw the region's next largest increase, from #[+value(0.0176, {'FORMAT': '0.00%'})] to #[+value(0.0187, {'FORMAT': '0.00%'})].
+            else 
+                | The #[+value(data['CIS']['perc']['Change']>0?'increase':'decrease')] of #[+value(Math.abs(data['CIS']['perc']['Change']))] percentage points means #[+value(meta.name)] continues to have a higher proportion #[+value(wordob['word4'])] than the average across the #[+value(meta.parent)]. 
+                | The region's highest percentage (#[+value(0.0211, {'FORMAT': '0.00%'})]) was recorded in Darlington.
+        p 
+            | Across the #[+value(meta.parent)], the estimated percentage of the population #[+value(wordob['word4'])] increased from #[+value(0.0156, {'FORMAT': '0.00%'})] to #[+value(0.0165, {'FORMAT': '0.00%'})].
+
+| #[+para(0)]
